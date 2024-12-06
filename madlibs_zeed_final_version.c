@@ -91,7 +91,7 @@ void readFileToArray(FILE *file, char array[ROW_LENGTH][COL_LENGTH], int *numRow
  //           colIndex = 0;
 
  //           if (ch == '\n') {
-                continue;
+//                continue;
 //            }
 //        }
 
