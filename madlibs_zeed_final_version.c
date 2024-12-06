@@ -58,7 +58,7 @@ int main(){
 	return 0;
 }
 
-void readFileToArray(FILE *file, char array[ROW_LENGTH][COL_LENGTH], int *numRows){
+void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows){
 	char letter, firstLetter;
 	int columnCounter=0;
 	int rowCounter=0;
