@@ -58,32 +58,47 @@ int main(){
 	return 0;
 }
 
+void readFileToArray(FILE *file, char array[ROW_LENGTH][COL_LENGTH], int *numRows){
+	char letter, firstLetter;
+	int columnCounter=0;
+	int rowCounter=0;
+	do{
+		do{
+			fscanf(file, "%c", &letter);
+			array[rowCounter][columnCounter] = letter;
+			columnCounter++;
+		}while(letter != '\n');
+		rowCounter++;
+		columnCounter=0;
+	}while(rowSize(array[rowCounter-1]) != 1);
+	*numRows = rowCounter;
+}
 
 // Function to read file into an array and count rows
-void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows) {
+//void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows) {
     
-    int count = 0;
-    int colIndex = 0;
-    char ch;
+//    int count = 0;
+//    int colIndex = 0;
+//    char ch;
 
     // Read file character by character
  
-     while ((ch = fgetc(file)) != EOF && count < ROW_LENGTH){ // Note: We shouldn't use EOF, but this is the only way that it worked for me
-        if (ch == '\n' || colIndex == COL_LENGTH - 1) {
+ //    while ((ch = fgetc(file)) != EOF && count < ROW_LENGTH){ // Note: We shouldn't use EOF, but this is the only way that it worked for me
+ //       if (ch == '\n' || colIndex == COL_LENGTH - 1) {
             // End of line or maximum column limit reached
-            rows[count][colIndex] = '\0';  // Null-terminate the current row
-            count++;  // Move to the next row
-            colIndex = 0;
+ //           rows[count][colIndex] = '\0';  // Null-terminate the current row
+ //           count++;  // Move to the next row
+ //           colIndex = 0;
 
-            if (ch == '\n') {
+ //           if (ch == '\n') {
                 continue;
-            }
-        }
+//            }
+//        }
 
-        if (count < ROW_LENGTH) {
-            rows[count][colIndex++] = ch;
-        }
-    }
+//        if (count < ROW_LENGTH) {
+//            rows[count][colIndex++] = ch;
+//        }
+//    }
 
     // Handle the last line if the file doesn't end with a newline
     if (colIndex > 0 && count < ROW_LENGTH) {
