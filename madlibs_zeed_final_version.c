@@ -101,13 +101,13 @@ void readFileToArray(FILE *file, char array[ROW_LENGTH][COL_LENGTH], int *numRow
 //    }
 
     // Handle the last line if the file doesn't end with a newline
-    if (colIndex > 0 && count < ROW_LENGTH) {
-        rows[count][colIndex] = '\0';
-        count++;
-    }
-
-    *numRows = count;  // Store the number of rows
-}
+//    if (colIndex > 0 && count < ROW_LENGTH) {
+//        rows[count][colIndex] = '\0';
+//        count++;
+//    }
+//
+//    *numRows = count;  // Store the number of rows
+//}
 
 
 // Return the length of a string
