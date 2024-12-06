@@ -58,7 +58,7 @@ int main(){
 	return 0;
 }
 
-// void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows){
+// void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows){ //Note: Find a way to integrate with the other functions.
 // 	char letter, firstLetter;
 // 	int columnCounter=0;
 // 	int rowCounter=0;
