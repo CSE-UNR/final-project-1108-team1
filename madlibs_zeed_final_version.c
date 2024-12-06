@@ -65,12 +65,12 @@ void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows
 	do{
 		do{
 			fscanf(file, "%c", &letter);
-			array[rowCounter][columnCounter] = letter;
+			rows[rowCounter][columnCounter] = letter;
 			columnCounter++;
 		}while(letter != '\n');
 		rowCounter++;
 		columnCounter=0;
-	}while(rowSize(array[rowCounter-1]) != 1);
+	}while(stringLength(rows[rowCounter-1]) != 1);
 	*numRows = rowCounter;
 }
 
