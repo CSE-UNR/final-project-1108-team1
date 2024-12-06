@@ -18,6 +18,8 @@ int main(){
 		printf("Can't open file\n");
 		return 0;
 	}
+	char letterArr[ARRAY_SIZE];
+	int rowNumArr[ARRAY_SIZE];
 	scanFile(inFp, ROW_LENGTH, COL_LENGTH, madlibs);
 	findLetters(ROW_LENGTH, COL_LENGTH, madlibs, ARRAY_SIZE, letterArr, rowNumArr);
 	for(int i=0; i<50; i++){
