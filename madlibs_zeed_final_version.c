@@ -58,67 +58,31 @@ int main(){
 	return 0;
 }
 
-// void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows){ //Note: Find a way to integrate with the other functions.
-// 	char letter, firstLetter;
-// 	int columnCounter=0;
-// 	int rowCounter=0;
-// 	do{
-// 		do{
-// 			fscanf(file, "%c", &letter);
-// 			rows[rowCounter][columnCounter] = letter;
-// 			columnCounter++;
-// 		}while(letter != '\n');
-// 		rowCounter++;
-// 		columnCounter=0;
-// 	}while(stringLength(rows[rowCounter-1]) != 1);
-// 	*numRows = rowCounter;
-// }
 
 // Function to read file into an array and count rows
 void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows) {
-    
-   int count = 0;
-   int colIndex = 0;
-   char ch;
+    int count = 0;
 
-    // Read file character by character
-    while ((ch = fgetc(file)) != EOF && count < ROW_LENGTH){ // Note: We shouldn't use EOF, but this is the only way that it worked for me
-       if (ch == '\n' || colIndex == COL_LENGTH - 1) {
-            // End of line or maximum column limit reached
-           rows[count][colIndex] = '\0';  // Null-terminate the current row
-           count++;  // Move to the next row
-           colIndex = 0;
+    // Read each line using `fgets` until the file ends or row limit is reached
+    while (count < ROW_LENGTH && fgets(rows[count], COL_LENGTH, file) != NULL) {
+        
+        // Remove the trailing newline character if present
+        int colIndex = 0;
+        while (rows[count][colIndex] != '\0') {
+            if (rows[count][colIndex] == '\n') {
+                rows[count][colIndex] = '\0';
+                break;
+            }
+            colIndex++;
+        }
+        
+        
+        count++;  // Move to the next row
+    }
 
-           if (ch == '\n') {
-               continue;
-           }
-       }
-
-       if (count < ROW_LENGTH) {
-           rows[count][colIndex++] = ch;
-       }
-   }
-
-   // Handle the last line if the file doesn't end with a newline
-   if (colIndex > 0 && count < ROW_LENGTH) {
-       rows[count][colIndex] = '\0';
-       count++;
-   }
-
-   *numRows = count;  // Store the number of rows
+    *numRows = count;  // Store the number of rows read
 }
 
-
-// Return the length of a string
-int stringLength(char str[]){
-	
-	// my code:
-	int i;
-	for(i=0; str[i]!='\0' ; i++){ // Note: We could optimize it using a while loop
-		// Count the characters of the string.	
-	}
-	return i;
-}
 
 
 // Function to find rows starting with 'A', 'N', or 'V' and of length 1
