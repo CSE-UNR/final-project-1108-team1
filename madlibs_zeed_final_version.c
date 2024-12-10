@@ -1,4 +1,4 @@
-// Authors: Zeed Almelhem 
+// Authors: Zeed Almelhem & Margaux Cruzan & Kaito Fukuda
 // Team1 1108
 // 12/3/2024
 
