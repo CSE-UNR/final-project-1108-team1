@@ -31,7 +31,7 @@ int main(){
         scanf("%s", file_name);
 	
 	// Open the file
-	inFp = fopen(INPUT_FILE, "r");
+	inFp = fopen(file_name, "r");
 	if(inFp == NULL){
 		printf("Can't open file\n");
 		return 0;
