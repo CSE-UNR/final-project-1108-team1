@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 
-#define INPUT_FILE "madlib2.txt"
 #define ROW_LENGTH 100
 #define COL_LENGTH 100
 
@@ -18,6 +17,7 @@ void display_updated_madlibs(char madlibs_array[ROW_LENGTH][COL_LENGTH], int mad
 
 
 int main(){
+	char file_name [ROW_LENGTH];
 	FILE *inFp; // File pointer
 	char madlibs[ROW_LENGTH][COL_LENGTH]; // 2D-Array to store the madlibs
 	int madlibs_rows_length; // The number of rows in the madlibs
@@ -25,6 +25,10 @@ int main(){
 	int resultRows[ROW_LENGTH]; // The rows starting with 'A', 'N', or 'V'
 	int resultCount; // The number of rows that start with 'A', 'N', or 'V'
 	char user_responses[ROW_LENGTH][COL_LENGTH]; // The user responses for 'A', 'N', and 'V'
+
+       	// Get the file's name:
+	printf("Please enter the file's name (madlib1.txt or madlib2.txt): ");
+        scanf("%s", file_name);
 	
 	// Open the file
 	inFp = fopen(INPUT_FILE, "r");
