@@ -149,8 +149,13 @@ void replaceWords(char madlibs_array[ROW_LENGTH][COL_LENGTH], int resultRows[ROW
 void display_updated_madlibs(char madlibs_array[ROW_LENGTH][COL_LENGTH], int madlibs_rows_length){
 	
 	printf("\n");
-	for(int i=0; i<madlibs_rows_length ; i++){ // Note: There's still a problem with "." & "," in statements like: their zeed. & their zeed . 
-		printf(" %s", madlibs_array[i]);
+	for(int i=0; i<madlibs_rows_length ; i++){ 
+		if(madlibs_array[i+1][0] != '.' && madlibs_array[i+1][0] != ',' && madlibs_array[i+1][0] != '!' && madlibs_array[i+1][0] != '?'){
+			printf("%s ", madlibs_array[i]);
+		}
+		else{
+			printf("%s", madlibs_array[i]);
+		}
 	}
 	printf("\n");
 }
