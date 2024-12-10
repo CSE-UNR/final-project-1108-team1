@@ -84,6 +84,17 @@ void readFileToArray(FILE *file, char rows[ROW_LENGTH][COL_LENGTH], int *numRows
 }
 
 
+// Return the length of a string
+int stringLength(char str[]){
+	
+	// my code:
+	int i;
+	for(i=0; str[i]!='\0' ; i++){ // Note: We could optimize it using a while loop
+		// Count the characters of the string.	
+	}
+	return i;
+}
+
 
 // Function to find rows starting with 'A', 'N', or 'V' and of length 1
 void findSpecificRows(char rows[ROW_LENGTH][COL_LENGTH], int numRows, char resultChars[], int resultRows[], int *resultCount) {
